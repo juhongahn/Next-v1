@@ -29,7 +29,7 @@ export default function OpenViduVideoComponent(props) {
 
         if (prediction[0].probability.toFixed(2) >= 0.85) {
             if (poseStatus === "squat") {
-                console.log("squat!");
+                props.setJump(true);
             }
             poseStatus.current = "stand";
             console.log("stand!");

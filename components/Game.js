@@ -3,6 +3,7 @@ import axios from 'axios';
 import UserVideoComponent from './UserVideoComponent';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import Dino from './Dino';
 
 // const APPLICATION_SERVER_URL = "https://ena.jegal.shop:8080/";
 const APPLICATION_SERVER_URL = "http://localhost:5000/";
@@ -16,7 +17,7 @@ export default function Game() {
     const [publisher, setPublisher] = useState(undefined);
     const [subscribers, setSubscribers] = useState([]);
 
-
+    const [jump, setJump] = useState(false);
 
     const getToken = async () => {
         const sessionId = await createSession(mySessionId);
@@ -210,7 +211,7 @@ export default function Game() {
 
                     {mainStreamManager !== undefined ? (
                         <div id="main-video" className="col-md-6">
-                            <UserVideoComponent streamManager={mainStreamManager} />
+                            <UserVideoComponent streamManager={mainStreamManager} setJump={setJump} />
                             {/* <input
                                 className="btn btn-large btn-success"
                                 type="button"
@@ -218,6 +219,8 @@ export default function Game() {
                                 // onClick={switchCamera}
                                 value="Switch Camera"
                             /> */}
+                            <Dino jump={jump} setJump={setJump} />
+
                         </div>
                     ) : null}
                     <div id="video-container" className="col-md-6">

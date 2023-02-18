@@ -11,7 +11,7 @@ export default function UserVideoComponent(props) {
         <div>
             {props.streamManager !== undefined ? (
                 <div className="streamcomponent">
-                    <OpenViduVideoComponent streamManager={props.streamManager} />
+                    <OpenViduVideoComponent streamManager={props.streamManager} setJump={props.setJump} />
                     <div><p>{getNicknameTag}</p></div>
                 </div>
             ) : null}
